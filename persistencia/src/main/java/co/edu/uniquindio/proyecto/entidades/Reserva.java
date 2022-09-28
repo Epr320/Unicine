@@ -40,11 +40,17 @@ public class Reserva implements Serializable {
     @OneToMany(mappedBy = "reserva")
     private List<Reserva_Confiteria> confiterias;
 
+    @OneToMany(mappedBy = "reserva")
+    private List<Entrada> entradas;
+
     @ManyToOne
     private Cliente cliente;
 
     @ManyToOne
     private Horario horario;
+
+    @ManyToOne
+    private Cupon cupon;
 
     @ManyToMany
     private List<Estacionamiento> estacionamientos;

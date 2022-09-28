@@ -43,4 +43,7 @@ public class Horario implements Serializable {
     @OneToMany(mappedBy = "horario")
     private List<Reserva> reservas;
 
+    @OneToMany(mappedBy = "horario")
+    private List<Entrada> entradas;
+
 }
