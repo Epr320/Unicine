@@ -22,5 +22,4 @@ public interface ClienteServicio {
 
     boolean recuperarPasswordUsandoCorreoElectronico(String email) throws Exception;
 
-    boolean verificarNumeroEnListadoDeTelefonos(String numero);
 }

@@ -12,6 +12,10 @@ import java.util.List;
 public interface TeatroRepo extends JpaRepository<Teatro, Integer> {
 
     @Query("Select t from Teatro t join t.ciudad c where c.nombre=:nombreCiudad")
-    List<Teatro> buscarTeatrosPorCiudad(String nombreCiudad);
+    List<Teatro> buscarTeatrosPorCiudadNombre(String nombreCiudad);
+
+    @Query("Select t from Teatro t join t.ciudad c where c.codigo=:codigo")
+    List<Teatro> buscarTeatrosPorCiudadCodigo(Integer codigo);
+
 
 }

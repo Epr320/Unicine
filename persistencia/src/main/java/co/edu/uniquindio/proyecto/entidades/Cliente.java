@@ -22,4 +22,8 @@ public class Cliente extends Persona implements Serializable {
 
     @OneToMany(mappedBy = "cliente")
     private List<Reserva> reservas;
+
+    public Cliente(String cedula, String nombre, String email, String password) {
+    super(cedula,nombre,email,password);
+    }
 }

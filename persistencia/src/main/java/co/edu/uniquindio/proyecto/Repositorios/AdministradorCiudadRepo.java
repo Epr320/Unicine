@@ -27,5 +27,7 @@ public interface AdministradorCiudadRepo extends JpaRepository<AdministradorCiud
     Optional<AdministradorCiudad> findByEmail(String email);
 
     @Query("select c.adminsC from Ciudad c where c.codigo = :codigo")
-    Optional<AdministradorCiudad> buscarPorCodigoDeHotel(Integer codigo);
+    Optional<AdministradorCiudad> buscarPorCodigoDeCiudad(Integer codigo);
+
+
 }

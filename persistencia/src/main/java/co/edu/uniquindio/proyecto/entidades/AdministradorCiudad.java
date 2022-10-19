@@ -20,4 +20,9 @@ public class AdministradorCiudad extends Persona implements Serializable {
 
     @ManyToOne
     private Ciudad ciudad;
+
+    public AdministradorCiudad(String cedula, String nombre, String email, String password, int codigo) {
+        super(cedula, nombre, email, password);
+        this.codigo = codigo;
+    }
 }

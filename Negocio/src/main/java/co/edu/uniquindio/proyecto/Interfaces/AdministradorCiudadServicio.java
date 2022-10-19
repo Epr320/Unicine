@@ -18,7 +18,7 @@ public interface AdministradorCiudadServicio {
 
     AdministradorCiudad buscarAdministradorDeCiudadPorCodigo (Integer codigo) throws Exception;
 
-    AdministradorCiudad buscarAdministradorDeCiudadPorHotel (Integer codigo) throws Exception;
+    AdministradorCiudad buscarAdministradorDeCiudadPorCiudad (Integer codigo) throws Exception;
 
     List<AdministradorCiudad> listar();
 }

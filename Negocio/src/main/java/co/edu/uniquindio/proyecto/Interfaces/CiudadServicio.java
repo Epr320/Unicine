@@ -1,17 +1,20 @@
 package co.edu.uniquindio.proyecto.Interfaces;
 
+import co.edu.uniquindio.proyecto.entidades.Ciudad;
+
 import java.util.List;
+import java.util.Optional;
 
 public interface CiudadServicio {
-    CiudadServicio agregarCiudad (String nombre) throws Exception;
+    Ciudad agregarCiudad (String nombre) throws Exception;
 
-    CiudadServicio actualizarCiudad (Integer codigo, String nombreNuevo) throws Exception;
+    Ciudad actualizarCiudad (Integer codigo, String nombreNuevo) throws Exception;
 
     boolean eliminarCiudad (Integer codigo) throws Exception;
 
-    List<CiudadServicio> buscarCiudad (String nombre) throws Exception;
+    List<Ciudad> buscarCiudad (String nombre) throws Exception;
 
-    List<CiudadServicio> listar();
+    List<Ciudad> listar();
 
-    CiudadServicio obtenerCuidad(Integer id) throws Exception;
+    Ciudad obtenerCiudad(Integer id) throws Exception;
 }

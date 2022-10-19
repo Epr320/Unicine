@@ -22,4 +22,10 @@ public interface ClienteRepo extends JpaRepository<Cliente, String> {
     @Query("select r from Reserva r where r.cliente.cedula=:cedula")
     List<Reserva> listarReservasPorCliente(String cedula);
 
+    @Query("select c from Cliente  c where c.email=:email")
+    Optional<Cliente> findByEmail(String email);
+
+    @Query("select c.password from Cliente c where c.email = :email")
+    String recuperarPasswordConEmail(String email);
+
 }
