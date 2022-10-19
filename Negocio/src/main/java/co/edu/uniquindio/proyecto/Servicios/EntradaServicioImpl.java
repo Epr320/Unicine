@@ -22,6 +22,6 @@ public class EntradaServicioImpl implements EntradaServicio {
         entrada.setColumna(columna);
         entrada.setHorario(horario);
 
-        return entradaRepo.save(entrada);
+        return entrada;
     }
 }
