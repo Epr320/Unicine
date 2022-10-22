@@ -4,9 +4,10 @@ import co.edu.uniquindio.proyecto.Interfaces.CuponServicio;
 import co.edu.uniquindio.proyecto.Repositorios.CuponRepo;
 import co.edu.uniquindio.proyecto.entidades.Cupon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class CuponServicioImpl implements CuponServicio {
 
     @Autowired

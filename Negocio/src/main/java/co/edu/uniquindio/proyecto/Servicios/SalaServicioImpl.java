@@ -7,9 +7,10 @@ import co.edu.uniquindio.proyecto.Repositorios.TeatroRepo;
 import co.edu.uniquindio.proyecto.entidades.Sala;
 import co.edu.uniquindio.proyecto.entidades.Teatro;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class SalaServicioImpl implements SalaServicio {
 
     @Autowired

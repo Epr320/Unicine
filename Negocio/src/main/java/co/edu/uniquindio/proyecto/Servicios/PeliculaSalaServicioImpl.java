@@ -12,11 +12,11 @@ import java.util.List;
 @Service
 public class PeliculaSalaServicioImpl implements PeliculaSalaServicio {
     @Override
-    public PeliculaSala crearPeliculaSala(Pelicula pelicula, Sala sala, List<Horario> horarios) {
+    public PeliculaSala crearPeliculaSala(Pelicula pelicula, Sala sala) {
         PeliculaSala peliculaSala=new PeliculaSala();
         peliculaSala.setPelicula(pelicula);
         peliculaSala.setSala(sala);
-        peliculaSala.setHorarios(horarios);
+
         return null;
     }
 

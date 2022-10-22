@@ -23,7 +23,7 @@ public class Actor implements Serializable {
     private Integer codigo;
 
     @Column(nullable = false)
-    @Length(min=3, max=20,message ="El nombre debe tener entre 3 y 15 caracteres.")
+    @Length(min=3, max=35,message ="El nombre debe tener entre 3 y 15 caracteres.")
     @NotBlank
     private String nombre;
 

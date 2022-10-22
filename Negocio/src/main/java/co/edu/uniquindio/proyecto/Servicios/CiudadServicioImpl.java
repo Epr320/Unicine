@@ -4,10 +4,11 @@ import co.edu.uniquindio.proyecto.Interfaces.CiudadServicio;
 import co.edu.uniquindio.proyecto.Repositorios.CiudadRepo;
 import co.edu.uniquindio.proyecto.entidades.Ciudad;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CiudadServicioImpl implements CiudadServicio {
 
     @Autowired

@@ -33,7 +33,7 @@ public class ReservaServicioImpl implements ReservaServicio {
     public Reserva crearReserva(Double precio, Date fecha, String cedulacliente, Integer codhorario, String cupon,
                                 List<Entrada> entradas,List<Reserva_Confiteria> confiterias) throws Exception {
         double precioTotal;
-        double precioConfiteria;
+        double descuento;
         Horario horario = horarioRepo.getById(codhorario);
         Cliente cliente = clienteRepo.getById(cedulacliente);
         Optional<Cupon> cupon1 = cuponRepo.buscarPorNombre(cupon);
@@ -52,7 +52,7 @@ public class ReservaServicioImpl implements ReservaServicio {
 
         }else{
             reserva.setCupon(cupon1.get());
-            precioTotal=precioTotal-precioTotal*cupon1.get().getPorcentaje();
+            precioTotal=precioTotal-precioTotal*(cupon1.get().getPorcentaje()/100);
         }
         reserva.setCliente(cliente);
         reserva.setFecha(fecha);

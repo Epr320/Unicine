@@ -4,9 +4,10 @@ import co.edu.uniquindio.proyecto.Interfaces.PeliculaServicio;
 import co.edu.uniquindio.proyecto.Repositorios.PeliculaRepo;
 import co.edu.uniquindio.proyecto.entidades.Pelicula;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class PeliculaServicioImpl implements PeliculaServicio {
 
     @Autowired

@@ -5,7 +5,9 @@ import co.edu.uniquindio.proyecto.Repositorios.EntradaRepo;
 import co.edu.uniquindio.proyecto.entidades.Entrada;
 import co.edu.uniquindio.proyecto.entidades.Horario;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class EntradaServicioImpl implements EntradaServicio {
 
     @Autowired

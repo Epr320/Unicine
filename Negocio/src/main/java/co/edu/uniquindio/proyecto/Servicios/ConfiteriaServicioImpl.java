@@ -4,9 +4,10 @@ import co.edu.uniquindio.proyecto.Interfaces.ConfiteriaServicio;
 import co.edu.uniquindio.proyecto.Repositorios.ConfiteriaRepo;
 import co.edu.uniquindio.proyecto.entidades.Confiteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Optional;
-
+@Service
 public class ConfiteriaServicioImpl implements ConfiteriaServicio {
 
    @Autowired

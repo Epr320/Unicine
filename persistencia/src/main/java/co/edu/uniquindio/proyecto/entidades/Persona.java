@@ -24,7 +24,7 @@ public class Persona implements Serializable {
     private String cedula;
 
     @Column(nullable = false)
-    @Length(min=3, max=15,message ="El nombre debe tener entre 3 y 15 caracteres.")
+    @Length(min=3, max=30,message ="El nombre debe tener entre 3 y 15 caracteres.")
     @NotBlank
     private String nombre;
 
