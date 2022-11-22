@@ -4,10 +4,11 @@ import co.edu.uniquindio.proyecto.Interfaces.CiudadServicio;
 import co.edu.uniquindio.proyecto.Repositorios.CiudadRepo;
 import co.edu.uniquindio.proyecto.entidades.Ciudad;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CiudadServicioImpl implements CiudadServicio {
 
     @Autowired
@@ -45,7 +46,7 @@ public class CiudadServicioImpl implements CiudadServicio {
     }
 
     @Override
-    public List<Ciudad> buscarCiudad(String nombre) throws Exception {
+    public Ciudad buscarCiudad(String nombre) throws Exception {
         return ciudadRepo.listarPorNombre(nombre);
     }
 
@@ -56,7 +57,7 @@ public class CiudadServicioImpl implements CiudadServicio {
 
     @Override
     public Ciudad obtenerCiudad(Integer id) throws Exception {
-       Ciudad ciudad=ciudadRepo.getById(id);
+       Ciudad ciudad=ciudadRepo.findById(id).get();
        if(ciudad!=null){
            return ciudad;
        }else{

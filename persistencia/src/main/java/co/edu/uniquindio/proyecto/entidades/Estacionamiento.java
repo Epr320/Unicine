@@ -20,7 +20,6 @@ import java.util.List;
 public class Estacionamiento implements Serializable {
     @Id
     @EqualsAndHashCode.Include
-    @NotBlank
     @Length(min=1, max=10,message ="La cedula debe tener 10 caracteres.")
     private Integer codigo;
 

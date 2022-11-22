@@ -1,4 +1,5 @@
 rootProject.name = 'UniCine'
 include 'persistencia'
 include 'Negocio'
+include 'Web'
 

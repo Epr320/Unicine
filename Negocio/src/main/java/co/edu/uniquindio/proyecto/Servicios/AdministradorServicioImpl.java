@@ -8,10 +8,11 @@ import co.edu.uniquindio.proyecto.entidades.Administrador;
 import co.edu.uniquindio.proyecto.entidades.AdministradorCiudad;
 import co.edu.uniquindio.proyecto.entidades.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
-
+@Service
 public class AdministradorServicioImpl implements AdministradorServicio {
     @Autowired
     AdministradorRepo administradorRepo;

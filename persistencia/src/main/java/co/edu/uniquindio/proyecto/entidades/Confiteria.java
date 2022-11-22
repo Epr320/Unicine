@@ -31,8 +31,6 @@ public class Confiteria implements Serializable {
     private String nombre;
 
     @Column(nullable = false)
-    @Length(min=3, max=100,message ="El nombre debe tener entre 3 y 15 caracteres.")
-    @NotBlank
     private double precio;
 
     @OneToMany(mappedBy = "confiteria")

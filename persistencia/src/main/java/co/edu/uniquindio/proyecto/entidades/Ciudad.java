@@ -13,7 +13,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString
 public class Ciudad implements Serializable {
     @Id
     @EqualsAndHashCode.Include
@@ -31,4 +30,18 @@ public class Ciudad implements Serializable {
 
     @OneToMany(mappedBy = "ciudad")
     private List<Teatro> teatros;
+
+    @Override
+    public String toString() {
+        return "Ciudad{" +
+                "nombre='" + nombre + '\'' +
+                '}';
+    }
+    public Ciudad(int codigo, String nombre) {
+        this.codigo = codigo;
+        this.nombre = nombre;
+    }
+    public Ciudad(String nombre) {
+        this.nombre = nombre;
+    }
 }

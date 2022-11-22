@@ -16,10 +16,11 @@ import java.util.List;
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
 @ToString
 public class Horario implements Serializable {
+
     @Id
     @EqualsAndHashCode.Include
-    @NotBlank
-    @Length(min=1, max=10,message ="La cedula debe tener 10 caracteres.")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(nullable = false)
     private Integer codigo;
 
     @Column(nullable = false)
@@ -30,15 +31,16 @@ public class Horario implements Serializable {
     @Column(nullable = false)
     @Length(min=1, max=15,message ="El nombre debe tener entre 3 y 15 caracteres.")
     @NotBlank
+    private String horaFin;
+
+    @Column(nullable = false)
     private double precio;
 
     @Column(nullable = false)
-    @Length(min=3, max=15,message ="El nombre debe tener entre 3 y 15 caracteres.")
-    @NotBlank
-    private Date fechaFin;
+    private Date fecha;
 
     @ManyToOne
-    private PeliculaSala peliculaSala;
+    private PeliculaSala peliculaSala = new PeliculaSala();
 
     @OneToMany(mappedBy = "horario")
     private List<Reserva> reservas;

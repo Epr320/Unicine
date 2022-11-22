@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templateAdministrador.xhtml">
+    <ui:define name="title">Inicio</ui:define>
+    <ui:define name="content">
+        <div class="card crud-demo">
+            <h:form id="form">
+                <p:growl id="messages" showDetail="true" />
+
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:commandButton value="New" icon="pi pi-plus" actionListener="#{peliculaBean.openNew}"
+                                         update=":dialogs:manage-product-content" oncomplete="PF('manageProductDialog').show()"
+                                         styleClass="ui-button-success" style="margin-right: .5rem">
+                            <p:resetInput target=":dialogs:manage-product-content" />
+                        </p:commandButton>
+                        <p:commandButton id="delete-products-button" value="#{peliculaBean.deleteButtonMessage}"
+                                         icon="pi pi-trash" actionListener="#{peliculaBean.deleteSelectedProducts}"
+                                         styleClass="ui-button-danger" disabled="#{!peliculaBean.hasSelectedProducts()}" update="@this">
+                            <p:confirm header="Confirmation" message="Delete the selected products?"
+                                       icon="pi pi-exclamation-triangle" />
+                        </p:commandButton>
+                    </p:toolbarGroup>
+
+                </p:toolbar>
+
+                <p:dataTable id="dt-products" widgetVar="dtProducts" var="pelicula" value="#{peliculaBean.teatroList}"
+                             reflow="true" styleClass="products-table" selection="#{gestionTeatro.selectedTeatros}"
+                             rowKey="#{pelicula.codigo}" paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom">
+                    <f:facet name="header">
+                        <div class="products-table-header">
+                            <span style="font-weight: bold">Peliculas</span>
+                            <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                        <p:inputText id="globalFilter" onkeyup="PF('dtProducts').filter()" placeholder="Search" />
+                    </span>
+                        </div>
+                    </f:facet>
+
+                    <p:ajax event="rowSelect" update=":form:delete-products-button" />
+                    <p:ajax event="rowUnselect" update=":form:delete-products-button" />
+                    <p:ajax event="rowSelectCheckbox" update=":form:delete-products-button" />
+                    <p:ajax event="rowUnselectCheckbox" update=":form:delete-products-button" />
+                    <p:ajax event="toggleSelect" update=":form:delete-products-button" />
+
+                    <p:column selectionMode="multiple" exportable="false"></p:column>
+
+                    <p:column headerText="Codigo" sortBy="#{pelicula.codigo}" filterBy="#{pelicula.codigo}">
+                        <h:outputText value="#{pelicula.codigo}" />
+                    </p:column>
+                    <p:column headerText="Nombre" sortBy="#{pelicula.nombre}" filterBy="#{pelicula.nombre}">
+                        <h:outputText value="#{pelicula.nombre}" />
+                    </p:column>
+                    <p:column headerText="Descripcion" sortBy="#{pelicula.descripcion}" filterBy="#{pelicula.descripcion}">
+                        <h:outputText value="#{pelicula.descripcion}" />
+                    </p:column>
+                    <p:column headerText="Estado" sortBy="#{pelicula.estado}"
+                              filterBy="#{pelicula.estado}">
+                        <h:outputText value="#{pelicula.estado}" />
+                    </p:column>
+                    <p:column headerText="Genero" sortBy="#{pelicula.genero}"
+                              filterBy="#{pelicula.genero}">
+                        <h:outputText value="#{pelicula.genero}" />
+                    </p:column>
+                    <p:column headerText="Trailer" sortBy="#{pelicula.trailer}"
+                              filterBy="#{pelicula.trailer}">
+                        <h:outputText value="#{pelicula.trailer}" />
+                    </p:column>
+                    <p:column exportable="false">
+                        <p:commandButton icon="pi pi-pencil" update=":dialogs:manage-product-content"
+                                         oncomplete="PF('manageProductDialog').show()"
+                                         styleClass="edit-button rounded-button ui-button-success" process="@this">
+                            <f:setPropertyActionListener value="#{pelicula}" target="#{peliculaBean.selectedTeatro}" />
+                            <p:resetInput target=":dialogs:manage-product-content" />
+                        </p:commandButton>
+                        <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash"
+                                         process="@this"
+                                         oncomplete="PF('deleteProductDialog').show()">
+                            <f:setPropertyActionListener value="#{pelicula}" target="#{peliculaBean.selectedTeatro}" />
+                        </p:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+
+            <h:form id="dialogs">
+                <p:dialog header="Product Details" showEffect="fade" modal="true" widgetVar="manageProductDialog"
+                          responsive="true">
+                    <p:outputPanel id="manage-product-content" class="ui-fluid">
+                        <p:outputPanel rendered="#{not empty peliculaBean.selectedTeatro}">
+                            <div class="field">
+                                <p:outputLabel for="nombre">Nombre</p:outputLabel>
+                                <p:inputText id="nombre" value="#{peliculaBean.selectedTeatro.nombre}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="descripcion">Descripcion</p:outputLabel>
+                                <p:inputTextarea id="descripcion" value="#{peliculaBean.selectedTeatro.descripcion}" required="false" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="genero">Genero</p:outputLabel>
+                                <p:inputTextarea id="genero" value="#{peliculaBean.selectedTeatro.genero}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="estado">Estado</p:outputLabel>
+                                <p:inputTextarea id="estado" value="#{peliculaBean.selectedTeatro.estado}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="sinopsis">Sinopsis</p:outputLabel>
+                                <p:inputTextarea id="sinopsis" value="#{peliculaBean.selectedTeatro.sinopsis}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="trailer">Trailer</p:outputLabel>
+                                <p:inputTextarea id="trailer" value="#{peliculaBean.selectedTeatro.trailer}" required="true" />
+                            </div>
+                            <div class="field">
+                            <p:outputLabel for="imagenes_pelicula" value="Imágenes: " />
+                            <p:fileUpload id="imagenes_pelicula"
+
+                                          listener="#{peliculaBean.subirImagenes}" mode="advanced"
+                                          multiple="true" sizeLimit="1000000" fileLimit="5"
+                                          allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true" />
+
+                            <p:message for="imagenes_pelicula" />
+                            </div>
+                        </p:outputPanel>
+                    </p:outputPanel>
+
+                    <f:facet name="footer">
+                        <p:commandButton value="Save" icon="pi pi-check" actionListener="#{peliculaBean.saveProduct}"
+                                         update="manage-product-content" process="manage-product-content @this" />
+                        <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageProductDialog').hide()"
+                                         class="ui-button-secondary" type="button" />
+                    </f:facet>
+                </p:dialog>
+
+                <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300"
+                                 message="Delete the product?" header="Confirm" severity="warn">
+                    <p:commandButton value="Yes" icon="pi pi-check" actionListener="#{peliculaBean.deleteProduct}"
+                                     process="@this" update=":form:delete-products-button"
+                                     oncomplete="PF('deleteProductDialog').hide()" />
+                    <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                     onclick="PF('deleteProductDialog').hide()" />
+                </p:confirmDialog>
+
+                <p:confirmDialog global="true" showEffect="fade" width="300">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                                     icon="pi pi-times" />
+                </p:confirmDialog>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

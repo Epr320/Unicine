@@ -31,6 +31,11 @@ public class Entrada implements Serializable {
     @NotBlank
     private int columna;
 
+    @Column(nullable = false)
+    @Length(min=1, max=2,message ="El nombre debe tener entre 3 y 15 caracteres.")
+    @NotBlank
+    private double precio;
+
     @ManyToOne
     private Horario horario;
 

@@ -20,10 +20,10 @@ public class PeliculaSala implements Serializable {
     private Integer codigo;
 
     @ManyToOne
-    private Sala sala;
+    private Sala sala=new Sala();
 
     @ManyToOne
-    private Pelicula pelicula;
+    private Pelicula pelicula ;
 
     @OneToMany(mappedBy = "peliculaSala")
     private List<Horario> horarios;

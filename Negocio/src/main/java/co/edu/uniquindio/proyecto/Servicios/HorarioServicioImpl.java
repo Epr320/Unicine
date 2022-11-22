@@ -2,17 +2,22 @@ package co.edu.uniquindio.proyecto.Servicios;
 
 import co.edu.uniquindio.proyecto.Interfaces.HorarioServicio;
 import co.edu.uniquindio.proyecto.Repositorios.HorarioRepo;
+import co.edu.uniquindio.proyecto.Repositorios.PeliculaSalaRepo;
 import co.edu.uniquindio.proyecto.entidades.Horario;
 import co.edu.uniquindio.proyecto.entidades.PeliculaSala;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.Date;
 import java.util.List;
-
+@Service
 public class HorarioServicioImpl implements HorarioServicio {
 
     @Autowired
     HorarioRepo horarioRepo;
+
+    @Autowired
+    PeliculaSalaRepo peliculaSalaRepo;
 
     @Override
     public Horario crearHorario(String horaInicio, double precio, Date fechaFin, PeliculaSala peliculaSala) throws Exception {
@@ -20,18 +25,14 @@ public class HorarioServicioImpl implements HorarioServicio {
         Horario horario =new Horario();
         horario.setPrecio(precio);
         horario.setHorainicio(horaInicio);
-        horario.setFechaFin(fechaFin);
+        horario.setFecha(fechaFin);
         horario.setPeliculaSala(peliculaSala);
         return horarioRepo.save(horario);
     }
 
     @Override
-    public Horario actualizarHorario(Integer codigo, String horaInicio, double precio, Date fechaFin) throws Exception {
-
-       Horario horario =horarioRepo.getById(codigo);
-       horario.setPrecio(precio);
-       horario.setHorainicio(horaInicio);
-       horario.setFechaFin(fechaFin);
+    public Horario actualizarHorario(Horario horario) throws Exception {
+        peliculaSalaRepo.save(horario.getPeliculaSala());
         return horarioRepo.save(horario);
     }
 
@@ -49,5 +50,10 @@ public class HorarioServicioImpl implements HorarioServicio {
     public List<Horario> buscarHorarioPorPelicula(String nombre) {
 
         return horarioRepo.buscarPorPelicula(nombre);
+    }
+
+    @Override
+    public List<Horario> listarHorariosPorAdmin(String cedula) {
+        return horarioRepo.listarHorariosPorAdmin(cedula);
     }
 }

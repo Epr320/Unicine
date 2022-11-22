@@ -15,7 +15,7 @@ public interface CiudadRepo extends JpaRepository<Ciudad, Integer> {
     Optional<Ciudad> buscarPorNombre(String nombre);
 
     @Query("select c from Ciudad c where upper(c.nombre) like concat('%', :nombre, '%')")
-    List<Ciudad> listarPorNombre(String nombre);
+    Ciudad listarPorNombre(String nombre);
 
     List<Ciudad> findAll();
 }

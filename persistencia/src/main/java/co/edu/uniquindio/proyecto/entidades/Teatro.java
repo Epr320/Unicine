@@ -13,7 +13,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @EqualsAndHashCode(onlyExplicitlyIncluded = true)
-@ToString
 public class Teatro implements Serializable {
     @Id
     @EqualsAndHashCode.Include
@@ -36,4 +35,6 @@ public class Teatro implements Serializable {
 
     @OneToMany(mappedBy = "teatro")
     private List<Sala> salas;
+
+
 }

@@ -12,7 +12,7 @@ public interface CiudadServicio {
 
     boolean eliminarCiudad (Integer codigo) throws Exception;
 
-    List<Ciudad> buscarCiudad (String nombre) throws Exception;
+    Ciudad buscarCiudad (String nombre) throws Exception;
 
     List<Ciudad> listar();
 

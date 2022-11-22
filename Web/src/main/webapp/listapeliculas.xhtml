@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/template.xhtml">
+    <ui:define name="title">Inicio</ui:define>
+    <ui:define name="content">
+        <h1>Resultado | Busqueda</h1>
+        <h:form id="form">
+            <p:dataView id="lista-libros" var="libro" value="#{busquedaBean.peliculas}"
+                        rows="12" paginator="true" gridIcon="pi pi-th-large" listIcon="pi
+
+pi-bars" >
+                <p:dataViewGridItem>
+                    <div class="card" >
+                        <div class="card-body">
+                            <div class="mb-3 imagen-pelicula2" >
+                                <img src="#{libro.ruta}" alt=""/>
+                            </div>
+                            <h5 class="card-title">#{libro.nombre}</h5>
+                            <p class="card-text">#{libro.estado}</p>
+                            <p class="card-text">#{libro.genero}</p>
+                            <hr />
+                            <p:commandButton value="Ver detalle" styleClass="ui-button-raised"
+
+                                             icon="pi pi-arrow-right" iconPos="right" />
+
+                        </div>
+                    </div>
+                </p:dataViewGridItem>
+                <p:dataViewListItem>
+                    <div class="row d-flex" >
+                        <div class="col-lg-8 col-md-1 align-self-center" >
+                            <p:outputPanel>
+                                <h:panelGrid columns="1" cellpadding="5">
+                                    <div class="mb-3 imagen-pelicula" >
+                                        <img src="#{libro.ruta}" alt=""/>
+                                    </div>
+
+                                    <h:outputText value=" " />
+                                    <h:outputText value="#{libro.nombre}" style="font-weight:
+                                bold" />
+
+                                    <h:outputText value="#{libro.estado}" />
+
+                                    <h:outputText value="#{libro.genero}" />
+
+                                    <h:outputText value="#{libro.descripcion}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </div>
+                        <div class="col-lg-2 col-md-1 align-self-center" >
+                            <p:commandButton value="Ver detalle" action="#{busquedaBean.detallePelicula(libro.codigo)}"
+                                             styleClass="ui-button-raised" icon="pi pi-arrow-right" iconPos="right" />
+
+                        </div>
+                    </div>
+                </p:dataViewListItem>
+            </p:dataView>
+        </h:form>
+
+    </ui:define>
+</ui:composition>
+</html>

@@ -4,9 +4,11 @@ import co.edu.uniquindio.proyecto.Interfaces.ConfiteriaServicio;
 import co.edu.uniquindio.proyecto.Repositorios.ConfiteriaRepo;
 import co.edu.uniquindio.proyecto.entidades.Confiteria;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
-
+@Service
 public class ConfiteriaServicioImpl implements ConfiteriaServicio {
 
    @Autowired
@@ -22,16 +24,11 @@ public class ConfiteriaServicioImpl implements ConfiteriaServicio {
     }
 
     @Override
-    public Confiteria actualizarProducto(Integer codigo, String nombre, double precio) throws Exception {
+    public Confiteria actualizarProducto(Confiteria confiteria) throws Exception {
 
-        Optional<Confiteria> confiteria = confiteriaRepo.findById(codigo);
-        if(confiteria.isPresent()){
-            confiteria.get().setNombre(nombre);
-            confiteria.get().setPrecio(precio);
-            return confiteriaRepo.save(confiteria.get());
-        }else{
-            throw new Exception("No hay un producto con este codigo");
-        }
+
+            return confiteriaRepo.save(confiteria);
+
     }
 
     @Override
@@ -43,5 +40,10 @@ public class ConfiteriaServicioImpl implements ConfiteriaServicio {
         }else{
             throw new Exception("No hay un producto con este codigo");
         }
+    }
+
+    @Override
+    public List<Confiteria> listarConfiteria() {
+        return confiteriaRepo.findAll();
     }
 }

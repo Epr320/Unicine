@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templateEmpleado.xhtml">
+    <ui:define name="title">Inicio</ui:define>
+    <ui:define name="content">
+        <h:form id="form">
+            <div class="card">
+                <p:carousel value="#{clienteindexBean.peliculascarousel}" var="pelicula" circular="true"  autoplayInterval="3000"
+                            responsiveOptions="#{clienteindexBean.responsiveOptions}" numVisible="3" numScroll="1" >
+                    <f:facet name="header">
+                        <h5>Peliculas principales</h5>
+                    </f:facet>
+
+                    <div class="product-item">
+                        <div class="product-item-content">
+                            <div class="mb-3 imagen-pelicula" >
+                                <img src="#{pelicula.ruta}" alt=""/>
+                            </div>
+                            <div>
+                                <h4 class="mb-1">#{pelicula.nombre}</h4>
+                                <h6 class="mt-0 mb-3">
+                                    <h:outputText value="#{pelicula.genero}">
+                                        <f:convertNumber type="currency" pattern="¤#0" currencySymbol="$" />
+                                    </h:outputText>
+                                </h6>
+                                <h6 class="mt-0 mb-3">
+                                    <h:outputText value="#{pelicula.estado}">
+                                        <f:convertNumber type="currency" pattern="¤#0" currencySymbol="$" />
+                                    </h:outputText>
+                                </h6>
+                                <div class="col-lg-2 col-md-1 align-self-center" >
+                                    <p:commandButton value="Ver detalle" action="#{clienteindexBean.detallePelicula(pelicula.codigo)}"
+                                                     styleClass="ui-button-raised" icon="pi pi-arrow-right" iconPos="right" />
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </p:carousel>
+            </div>
+        </h:form>
+    </ui:define>
+</ui:composition>
+</html>

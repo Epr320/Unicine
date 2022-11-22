@@ -7,9 +7,10 @@ import co.edu.uniquindio.proyecto.Repositorios.TeatroRepo;
 import co.edu.uniquindio.proyecto.entidades.Sala;
 import co.edu.uniquindio.proyecto.entidades.Teatro;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
-
+@Service
 public class SalaServicioImpl implements SalaServicio {
 
     @Autowired
@@ -31,12 +32,10 @@ public class SalaServicioImpl implements SalaServicio {
     }
 
     @Override
-    public Sala actualizarSala(Integer codigo,int numfilas, int numColumnas, int numAsientos) throws Exception {
-        Sala sala=salaRepo.getById(codigo);
-        sala.setNumAsientos(numAsientos);
-        sala.setNumFilas(numfilas);
-        sala.setNumColumnas(numColumnas);
+    public Sala actualizarSala(Sala sala) throws Exception {
+
         return salaRepo.save(sala);
+
     }
 
     @Override
@@ -53,5 +52,15 @@ public class SalaServicioImpl implements SalaServicio {
     @Override
     public List<Sala> buscarSalaPorTeatro(Integer codigo) throws Exception {
         return salaRepo.buscarSalasPorTeatro(codigo);
+    }
+
+    @Override
+    public List<Sala> listar(String cedula) {
+        return salaRepo.buscarSalasPorCiudad(cedula);
+    }
+
+    @Override
+    public Sala obtenerSala(Integer parseInt) {
+        return salaRepo.findById(parseInt).get();
     }
 }

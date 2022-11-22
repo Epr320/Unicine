@@ -4,9 +4,11 @@ import co.edu.uniquindio.proyecto.Interfaces.CuponServicio;
 import co.edu.uniquindio.proyecto.Repositorios.CuponRepo;
 import co.edu.uniquindio.proyecto.entidades.Cupon;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+import java.util.List;
 import java.util.Optional;
-
+@Service
 public class CuponServicioImpl implements CuponServicio {
 
     @Autowired
@@ -23,17 +25,10 @@ public class CuponServicioImpl implements CuponServicio {
     }
 
     @Override
-    public Cupon ActualizarCupon(Integer codigo, String nombre, String descripcion, String criterio, int porcentaje) throws Exception {
-        Optional<Cupon> cupon =cuponRepo.findById(codigo);
-        if(cupon.isPresent()){
-            cupon.get().setNombre(nombre);
-            cupon.get().setPorcentaje(porcentaje);
-            cupon.get().setCriterio(criterio);
-            cupon.get().setDescripcion(descripcion);
-            return cuponRepo.save(cupon.get());
-        }else{
-            throw new Exception("El codigo no se encuentra asociado a ningun cupon");
-        }
+    public Cupon ActualizarCupon(Cupon cupon) throws Exception {
+
+            return cuponRepo.save(cupon);
+
 
     }
 
@@ -56,5 +51,10 @@ public class CuponServicioImpl implements CuponServicio {
         }else{
             throw new Exception("No hay ningun cupon asociado");
         }
+    }
+
+    @Override
+    public List<Cupon> listarCupon() {
+        return cuponRepo.findAll();
     }
 }

@@ -1,6 +1,10 @@
 dependencies {
     implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    testImplementation 'junit:junit'
     implementation 'org.springframework.boot:spring-boot-starter-mail'
+    implementation 'com.cloudinary:cloudinary-http44:1.33.0'
     implementation project(':persistencia')
+}
+
+test {
+    useJUnitPlatform()
 }

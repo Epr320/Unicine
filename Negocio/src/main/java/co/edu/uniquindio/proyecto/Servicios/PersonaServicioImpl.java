@@ -5,7 +5,9 @@ import co.edu.uniquindio.proyecto.Repositorios.AdministradorCiudadRepo;
 import co.edu.uniquindio.proyecto.Repositorios.AdministradorRepo;
 import co.edu.uniquindio.proyecto.Repositorios.ClienteRepo;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
+@Service
 public class PersonaServicioImpl implements PersonaServicio {
 
     @Autowired

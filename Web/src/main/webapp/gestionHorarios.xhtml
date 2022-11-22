@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/templateEmpleado.xhtml">
+    <ui:define name="title">Inicio</ui:define>
+    <ui:define name="content">
+        <div class="card crud-demo">
+            <h:form id="form">
+                <p:growl id="messages" showDetail="true" />
+
+                <p:toolbar>
+                    <p:toolbarGroup>
+                        <p:commandButton value="New" icon="pi pi-plus" actionListener="#{horarioBean.openNew}"
+                                         update=":dialogs:manage-product-content" oncomplete="PF('manageProductDialog').show()"
+                                         styleClass="ui-button-success" style="margin-right: .5rem">
+                            <p:resetInput target=":dialogs:manage-product-content" />
+                        </p:commandButton>
+                        <p:commandButton id="delete-products-button" value="#{horarioBean.deleteButtonMessage}"
+                                         icon="pi pi-trash" actionListener="#{horarioBean.deleteSelectedProducts}"
+                                         styleClass="ui-button-danger" disabled="#{!horarioBean.hasSelectedProducts()}" update="@this">
+                            <p:confirm header="Confirmation" message="Delete the selected products?"
+                                       icon="pi pi-exclamation-triangle" />
+                        </p:commandButton>
+                    </p:toolbarGroup>
+
+                </p:toolbar>
+
+                <p:dataTable id="dt-products" widgetVar="dtProducts" var="horario" value="#{horarioBean.teatroList}"
+                             reflow="true" styleClass="products-table" selection="#{horarioBean.selectedTeatros}"
+                             rowKey="#{horario.codigo}" paginator="true" rows="10" rowSelectMode="add" paginatorPosition="bottom">
+                    <f:facet name="header">
+                        <div class="products-table-header">
+                            <span style="font-weight: bold">Teatros</span>
+                            <span class="filter-container ui-input-icon-left"> <i class="pi pi-search"></i>
+                        <p:inputText id="globalFilter" onkeyup="PF('dtProducts').filter()" placeholder="Search" />
+                    </span>
+                        </div>
+                    </f:facet>
+
+                    <p:ajax event="rowSelect" update=":form:delete-products-button" />
+                    <p:ajax event="rowUnselect" update=":form:delete-products-button" />
+                    <p:ajax event="rowSelectCheckbox" update=":form:delete-products-button" />
+                    <p:ajax event="rowUnselectCheckbox" update=":form:delete-products-button" />
+                    <p:ajax event="toggleSelect" update=":form:delete-products-button" />
+
+                    <p:column selectionMode="multiple" exportable="false"></p:column>
+
+                    <p:column headerText="Code" sortBy="#{horario.codigo}" filterBy="#{horario.codigo}">
+                        <h:outputText value="#{horario.codigo}" />
+                    </p:column>
+                    <p:column headerText="Fecha" sortBy="#{horario.fecha}" filterBy="#{horario.fecha}">
+                        <h:outputText value="#{horario.fecha}" />
+                    </p:column>
+                    <p:column headerText="Precio" sortBy="#{horario.precio}" filterBy="#{horario.precio}">
+                        <h:outputText value="#{horario.precio}" />
+                    </p:column>
+                    <p:column headerText="Hora inicio" sortBy="#{horario.horainicio}"
+                              filterBy="#{horario.horainicio}">
+                        <h:outputText value="#{horario.horainicio}" />
+                    </p:column>
+                    <p:column headerText="Hora Fin" sortBy="#{horario.horaFin}"
+                              filterBy="#{horario.horaFin}">
+                        <h:outputText value="#{horario.horaFin}" />
+                    </p:column>
+                    <p:column headerText="Teatro" sortBy="#{horario.peliculaSala.sala.teatro.nombre}"
+                              filterBy="#{horario.peliculaSala.sala.teatro.nombre}">
+                        <h:outputText value="#{horario.peliculaSala.sala.teatro.nombre}" />
+                    </p:column>
+                    <p:column headerText="Sala" sortBy="#{horario.peliculaSala.sala.codigo}"
+                              filterBy="#{horario.peliculaSala.sala.codigo}">
+                        <h:outputText value="#{horario.peliculaSala.sala.codigo}" />
+                    </p:column>
+                    <p:column exportable="false">
+                        <p:commandButton icon="pi pi-pencil" update=":dialogs:manage-product-content"
+                                         oncomplete="PF('manageProductDialog').show()"
+                                         action="#{horarioBean.onCountryChange}"
+                                         styleClass="edit-button rounded-button ui-button-success" process="@this">
+                            <f:setPropertyActionListener value="#{horario}"  target="#{horarioBean.selectedTeatro}" />
+                            <p:resetInput target=":dialogs:manage-product-content" />
+                        </p:commandButton>
+                        <p:commandButton class="ui-button-warning rounded-button" icon="pi pi-trash"
+                                         process="@this"
+                                         oncomplete="PF('deleteProductDialog').show()">
+                            <f:setPropertyActionListener value="#{horario}" target="#{horarioBean.selectedTeatro}" />
+                        </p:commandButton>
+                    </p:column>
+
+                </p:dataTable>
+            </h:form>
+
+            <h:form id="dialogs">
+                <p:dialog header="Product Details" showEffect="fade" modal="true" widgetVar="manageProductDialog"
+                          responsive="true">
+                    <p:outputPanel id="manage-product-content" class="ui-fluid">
+                        <p:outputPanel rendered="#{not empty horarioBean.selectedTeatro}">
+                            <div class="field">
+                                <p:outputLabel for="hinicio">Hora inicio</p:outputLabel>
+                                <p:inputText id="hinicio" value="#{horarioBean.selectedTeatro.horainicio}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="hfin">Hora fin</p:outputLabel>
+                                <p:inputTextarea id="hfin" value="#{horarioBean.selectedTeatro.horaFin}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="precio">Precio</p:outputLabel>
+                                <p:inputTextarea id="precio" value="#{horarioBean.selectedTeatro.precio}" required="true" />
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="date">Fecha</p:outputLabel>
+                                <p:datePicker id="date" value="#{horarioBean.selectedTeatro.fecha}" monthNavigator="true" yearNavigator="true" showWeek="true"/>                            </div>
+                            <div class="field">
+                                <p:outputLabel for="pelicula">Pelicula</p:outputLabel>
+                                <p:panel header="Select a Location" style="margin-bottom:10px;">
+                                    <h:panelGrid columns="2" cellpadding="5">
+                                        <p:outputLabel for="pelicula" value="Pelicula: "/>
+                                        <p:selectOneMenu id="pelicula" value="#{horarioBean.selectedTeatro.peliculaSala.pelicula}" converter="#{peliuclaConverter}" style="width:150px">
+                                            <f:selectItem itemLabel="Select Pelicula" noSelectionOption="true"/>
+                                            <f:selectItems var="pelicula" itemLabel="#{pelicula.nombre}" value="#{horarioBean.peliculaList}" itemValue="#{pelicula}"/>
+                                        </p:selectOneMenu>
+                                    </h:panelGrid>
+
+                                </p:panel>
+                            </div>
+                            <div class="field">
+                                <p:outputLabel for="teatro">Teatro</p:outputLabel>
+                                <p:panel header="Select a Location" style="margin-bottom:10px;">
+                                    <h:panelGrid columns="2" cellpadding="5">
+                                        <p:outputLabel for="teatro" value="Pelicula: "/>
+                                        <p:selectOneMenu id="teatro" value="#{horarioBean.selectedTeatro.peliculaSala.sala.teatro}" converter="#{teatroConverter}" style="width:150px">
+                                            <p:ajax listener="#{horarioBean.onCountryChange}" update="city"/>
+                                            <f:selectItem itemLabel="Select Teatro" noSelectionOption="true"/>
+                                            <f:selectItems var="teatro" itemLabel="#{teatro.nombre}" value="#{horarioBean.teatros}" itemValue="#{teatro}"/>
+                                        </p:selectOneMenu>
+                                        <p:outputLabel for="city" value="Sala: "/>
+                                        <p:selectOneMenu id="city" value="#{horarioBean.selectedTeatro.peliculaSala.sala}" converter="#{salaConverter}" style="width:150px">
+                                            <f:selectItem itemLabel="Select Sala"  noSelectionOption="true"/>
+                                            <f:selectItems var="sala" itemLabel="#{sala.codigo}" value="#{horarioBean.salasTeatro}" itemValue="#{sala}"/>
+                                        </p:selectOneMenu>
+                                    </h:panelGrid>
+
+                                </p:panel>
+                            </div>
+
+                        </p:outputPanel>
+                    </p:outputPanel>
+
+                    <f:facet name="footer">
+                        <p:commandButton value="Save" icon="pi pi-check" actionListener="#{horarioBean.saveProduct}"
+                                         update="manage-product-content" process="manage-product-content @this" />
+                        <p:commandButton value="Cancel" icon="pi pi-times" onclick="PF('manageProductDialog').hide()"
+                                         class="ui-button-secondary" type="button" />
+                    </f:facet>
+                </p:dialog>
+
+                <p:confirmDialog widgetVar="deleteProductDialog" showEffect="fade" width="300"
+                                 message="Delete the product?" header="Confirm" severity="warn">
+                    <p:commandButton value="Yes" icon="pi pi-check" actionListener="#{horarioBean.deleteProduct}"
+                                     process="@this" update=":form:delete-products-button"
+                                     oncomplete="PF('deleteProductDialog').hide()" />
+                    <p:commandButton value="No" type="button" styleClass="ui-button-secondary" icon="pi pi-times"
+                                     onclick="PF('deleteProductDialog').hide()" />
+                </p:confirmDialog>
+
+                <p:confirmDialog global="true" showEffect="fade" width="300">
+                    <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="pi pi-check" />
+                    <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no ui-button-secondary"
+                                     icon="pi pi-times" />
+                </p:confirmDialog>
+            </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>
