@@ -46,6 +46,8 @@ public class IniciarSesionBean implements Serializable {
     @Autowired
     private PersonaServicio personaServicio;
 
-
+    public String registarCliente(){
+        return "RegistrarUsuario.xhtml?faces-redirect=true&amp";
+    }
 
 }

@@ -52,6 +52,7 @@ public class ClienteServicioImpl implements ClienteServicio {
         }
         Cliente cliente = new Cliente();
         cliente.setNombre(nombre);
+        cliente.setCedula(cedula);
         cliente.setEmail(email);
         cliente.setPassword(password);
         cliente.setTelefono(telefonos);

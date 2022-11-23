@@ -55,10 +55,9 @@
                     <p:commandButton style="min-width: 30%; margin-right: 10px;"
                                      action="#{seguridadBean.iniciarSesion}" value="Iniciar sesión"
                                      styleClass="mt-4" update="@form" icon="pi pi-sign-in" iconPos="left"/>
-                    <p:commandButton style="min-width: 30%; margin-right: 10px;" value="Registrarme"
-                                     action="#{iniciarSesionBean.registarCliente()}"
-                                     styleClass="mt-4" update="@form"/>
+
                 </h:panelGrid>
+
                     <div class="fotox">
                         <img src="resources/img/veterinario.png" style="width: 130px" alt=""/>
                     </div>
@@ -69,7 +68,9 @@
         </h:form>
 
         <h:form>
-
+            <p:commandButton style="min-width: 30%; margin-right: 10px;" value="Registrarme"
+                             action="#{iniciarSesionBean.registarCliente}"
+                             styleClass="mt-4" update="@form"/>
         </h:form>
     </div>
     </div>

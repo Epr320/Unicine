@@ -70,6 +70,14 @@
                                 goodLabel="Buena" strongLabel="Fuerte"
                                 style="width: 250px; height: 30px; margin-top: 1%"
                                 toggleMask="true" redisplay="true"/>
+                    <p:outputLabel for="imagenes_pelicula" value="Imágenes: " />
+                    <p:fileUpload id="imagenes_pelicula"
+
+                                  listener="#{registrarUsuarioBean.subirImagenes}" mode="advanced"
+                                  multiple="true" sizeLimit="1000000" fileLimit="5"
+                                  allowTypes="/(\.|\/)(gif|jpe?g|png)$/" required="true" />
+
+                    <p:message for="imagenes_pelicula" />
                     <p:commandButton style="min-width: 30%; margin-right: 10px;" value="Registrarme"
                                      action="#{registrarUsuarioBean.registrar()}"
                                      styleClass="mt-4" update="@form"/>

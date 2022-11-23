@@ -17,9 +17,9 @@ import java.io.Serializable;
 @MappedSuperclass
 @AllArgsConstructor
 public class Persona implements Serializable {
+
     @Id
     @EqualsAndHashCode.Include
-    @NotBlank
     @Length(min=10, max=10,message ="La cedula debe tener 10 caracteres.")
     private String cedula;
 
