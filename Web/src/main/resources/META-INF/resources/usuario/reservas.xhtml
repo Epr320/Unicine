@@ -7,9 +7,47 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
 <ui:composition template="/template.xhtml">
-    <ui:define name="title">Pelicula</ui:define>
+        <ui:define name="title">Reservas</ui:define>
     <ui:define name="content">
+        <h1>Resultado | Reservas</h1>
+        <h:form id="form">
+            <p:dataView id="lista-libros" var="reserva" value="#{reservasBean.misReservas}"
+                        rows="12" paginator="true" gridIcon="pi pi-th-large" listIcon="pi
 
+pi-bars" >
+                <p:dataViewGridItem>
+                    <div class="card" >
+                        <div class="card-body">
+                            <p class="card-text">#{reserva.horario.peliculaSala.pelicula.nombre}</p>
+                            <h5 class="card-title">#{reserva.codigo}</h5>
+                            <p class="card-text">#{reserva.precio}</p>
+                            <p class="card-text">#{reserva.horario.fecha}</p>
+                            <hr />
+                        </div>
+                    </div>
+                </p:dataViewGridItem>
+                <p:dataViewListItem>
+                    <div class="row d-flex" >
+                        <div class="col-lg-8 col-md-1 align-self-center" >
+                            <p:outputPanel>
+                                <h:panelGrid columns="1" cellpadding="5">
+
+                                    <h:outputText value=" " />
+                                    <h:outputText value="#{reserva.horario.peliculaSala.pelicula.nombre}" style="font-weight:
+                                bold" />
+
+                                    <h:outputText value="#{reserva.horario.horainicio}" />
+
+                                    <h:outputText value="#{reserva.precio}" />
+
+                                    <h:outputText value="#{reserva.horario.fecha}" />
+                                </h:panelGrid>
+                            </p:outputPanel>
+                        </div>
+                    </div>
+                </p:dataViewListItem>
+            </p:dataView>
+        </h:form>
     </ui:define>
 </ui:composition>
 </html>

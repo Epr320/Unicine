@@ -18,11 +18,11 @@ insert into administrador_ciudad values ("1111111123","adminPereira@gmail.com","
 insert into administrador_ciudad values ("1111111124","adminBogota@gmail.com","Sandra Liz","root",4,4);
 insert into administrador_ciudad values ("1111111126","adminCali@gmail.com","Pepito Perez","root",5,5);
 
-insert into cliente values ("1005278617","emerson@gmail.com","Emerson Pulgarin","emerson222","");
-insert into cliente values ("1005278618","juana@gmail.com","Juana Restrepo","emerson222","");
-insert into cliente values ("1005278619","natalia@gmail.com","Natalia Vargaz","emerson222","");
-insert into cliente values ("1005278613","andres@gmail.com","Andres Posada","emerson222","");
-insert into cliente values ("1005278612","miguel@gmail.com","Miguel Chisino","emerson222","");
+insert into cliente values ("1005278617","emerson@gmail.com","Emerson Pulgarin","k+jijKQL/TpgnJyANoZnUymCqy1AoHO0ybqHn6ZV0Zve6i3tIk6YvZzMqYw9RZCE ","");
+insert into cliente values ("1005278618","juana@gmail.com","Juana Restrepo","k+jijKQL/TpgnJyANoZnUymCqy1AoHO0ybqHn6ZV0Zve6i3tIk6YvZzMqYw9RZCE ","");
+insert into cliente values ("1005278619","natalia@gmail.com","Natalia Vargaz","k+jijKQL/TpgnJyANoZnUymCqy1AoHO0ybqHn6ZV0Zve6i3tIk6YvZzMqYw9RZCE ","");
+insert into cliente values ("1005278613","andres@gmail.com","Andres Posada","k+jijKQL/TpgnJyANoZnUymCqy1AoHO0ybqHn6ZV0Zve6i3tIk6YvZzMqYw9RZCE ","");
+insert into cliente values ("1005278612","miguel@gmail.com","Miguel Chisino","k+jijKQL/TpgnJyANoZnUymCqy1AoHO0ybqHn6ZV0Zve6i3tIk6YvZzMqYw9RZCE ","");
 
 insert into cliente_telefono values ("1005278617","3016976242");
 insert into cliente_telefono values ("1005278619","3016976243");

@@ -17,7 +17,7 @@ public class Cliente extends Persona implements Serializable {
     @ElementCollection
     private List<String> telefono;
 
-    @Column(nullable = false)
+    @Column(nullable = true)
     private String ruta;
 
     @OneToMany(mappedBy = "cliente")

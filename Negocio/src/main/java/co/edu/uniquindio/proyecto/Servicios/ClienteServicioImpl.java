@@ -7,6 +7,9 @@ import co.edu.uniquindio.proyecto.Repositorios.ClienteRepo;
 import co.edu.uniquindio.proyecto.entidades.Administrador;
 import co.edu.uniquindio.proyecto.entidades.AdministradorCiudad;
 import co.edu.uniquindio.proyecto.entidades.Cliente;
+import co.edu.uniquindio.proyecto.entidades.Persona;
+import org.jasypt.exceptions.EncryptionOperationNotPossibleException;
+import org.jasypt.util.password.StrongPasswordEncryptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -29,7 +32,23 @@ public class ClienteServicioImpl implements ClienteServicio {
 
     @Override
     public Cliente login(String email, String password) throws Exception {
-        return clienteRepo.findByEmailAndPassword(email,password).orElseThrow(()-> new Exception("Datos Incorrectos"));
+
+        try {
+            StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+            Optional<Cliente> cliente = clienteRepo.findByEmail(email);
+            if (cliente.isPresent()) {
+                if (!passwordEncryptor.checkPassword(password, cliente.get().getPassword())) {
+                    throw new Exception("La contraseña es incorrecta");
+                } else {
+                    return cliente.get();
+                }
+            }else {
+                throw new Exception("Los datos de autenticación son incorrectos");
+            }
+        }catch (EncryptionOperationNotPossibleException e){
+            throw new Exception("La contraseña es incorrecta");
+        }
+
     }
 
     @Override
@@ -54,7 +73,8 @@ public class ClienteServicioImpl implements ClienteServicio {
         cliente.setNombre(nombre);
         cliente.setCedula(cedula);
         cliente.setEmail(email);
-        cliente.setPassword(password);
+        StrongPasswordEncryptor passwordEncryptor = new StrongPasswordEncryptor();
+        cliente.setPassword( passwordEncryptor.encryptPassword( password ) );
         cliente.setTelefono(telefonos);
         cliente.setRuta(ruta);
         return clienteRepo.save(cliente);
