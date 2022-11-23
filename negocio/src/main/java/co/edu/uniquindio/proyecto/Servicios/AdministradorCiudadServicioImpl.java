@@ -6,6 +6,7 @@ import co.edu.uniquindio.proyecto.Repositorios.AdministradorRepo;
 import co.edu.uniquindio.proyecto.Repositorios.ClienteRepo;
 import co.edu.uniquindio.proyecto.entidades.Administrador;
 import co.edu.uniquindio.proyecto.entidades.AdministradorCiudad;
+import co.edu.uniquindio.proyecto.entidades.Ciudad;
 import co.edu.uniquindio.proyecto.entidades.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,7 @@ public class AdministradorCiudadServicioImpl implements AdministradorCiudadServi
     }
 
     @Override
-    public AdministradorCiudad agregarAdministradorDeCiudad(String cedula, String nombre, String email, String password) throws Exception {
+    public AdministradorCiudad agregarAdministradorDeCiudad(String cedula, String nombre, String email, String password, Ciudad ciudad) throws Exception {
         int tamanio;
         List<AdministradorCiudad> administradorHotelList = administradorCiudadRepo.findAll();
         Optional<Cliente> buscar = clienteRepo.findById(cedula);
@@ -56,6 +57,7 @@ public class AdministradorCiudadServicioImpl implements AdministradorCiudadServi
         }
 
         AdministradorCiudad administradorHotel = new AdministradorCiudad(cedula, nombre, email, password, tamanio+1);
+        administradorHotel.setCiudad(ciudad);
         return administradorCiudadRepo.save(administradorHotel);
     }
 

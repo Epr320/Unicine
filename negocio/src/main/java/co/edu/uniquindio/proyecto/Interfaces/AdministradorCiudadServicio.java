@@ -1,6 +1,7 @@
 package co.edu.uniquindio.proyecto.Interfaces;
 
 import co.edu.uniquindio.proyecto.entidades.AdministradorCiudad;
+import co.edu.uniquindio.proyecto.entidades.Ciudad;
 
 import java.util.List;
 
@@ -8,7 +9,7 @@ public interface AdministradorCiudadServicio {
 
     AdministradorCiudad login (String email, String password) throws Exception;
 
-    AdministradorCiudad agregarAdministradorDeCiudad (String cedula, String nombre, String email, String password) throws Exception;
+    AdministradorCiudad agregarAdministradorDeCiudad (String cedula, String nombre, String email, String password, Ciudad ciudad) throws Exception;
 
     AdministradorCiudad actualizarAdministradorDeCiudad (String cedula, String nombre,  String email, String password, Integer codigo) throws Exception;
 
