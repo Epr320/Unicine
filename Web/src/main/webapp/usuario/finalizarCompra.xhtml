@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/template.xhtml">
+    <ui:define name="title">Pelicula</ui:define>
+    <ui:define name="content">
+        <p:panel header="Finaliza la compra" styleClass="mt-3">
+            <div class="row">
+
+                    <div class="col-3 mb-3">
+                        <div class="shadow-sm p-3">
+                            <h:form id="cofiteForm">
+                                <div class="field">
+                                <p:outputLabel for="nombre" style="font-weight:
+                                bolder ">Precio Final:</p:outputLabel>
+                                <h:outputText id="nombre" value="#{compraFinalBean.precioFinal}"  styleClass="left"/>
+                                </div>
+                                <p:outputLabel for="pago" style="font-weight:
+                                bolder ">Metodo Pago:</p:outputLabel>
+                                <h:panelGrid columns="2" cellpadding="5">
+                                    <p:outputLabel for="pago" value="Medio de pago: "/>
+                                    <p:selectOneMenu id="pago"  style="width:150px">
+                                        <f:selectItem itemLabel="Select medio de pago" noSelectionOption="true"/>
+                                        <f:selectItems  value="#{compraFinalBean.medioPago}" />
+                                    </p:selectOneMenu>
+                                </h:panelGrid>
+                                <h5>Basic</h5>
+                                <p:inputText value="#{compraFinalBean.cupon}"/>
+                                <p:commandButton value="Completar Compra" action="#{compraFinalBean.completarCompra()}"
+                                                 styleClass="ui-button-raised" icon="pi pi-arrow-right" iconPos="right"/>
+                            </h:form>
+                        </div>
+                    </div>
+
+            </div>
+        </p:panel>
+    </ui:define>
+</ui:composition>
+</html>

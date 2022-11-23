@@ -46,29 +46,6 @@ public class IniciarSesionBean implements Serializable {
     @Autowired
     private PersonaServicio personaServicio;
 
-    public String iniciarSesion() {
-        int tipoPersona= 0;
-        try {
-            tipoPersona = personaServicio.verificarTipoDeUsuario(correo);
-            if(tipoPersona==3){
-                Cliente cliente=clienteServicio.login(correo,contraseña);
-                return "SeleccionarTeatro.xhtml?faces-redirect=true&amp;cedula="+cliente.getCedula();
-            }
-            if(tipoPersona==2){
-                AdministradorCiudad administradorCiudad = administradorCiudadServicio.login(correo,contraseña);
-                return "empleado_index.xhtml?faces-redirect=true&amp;cedula="+administradorCiudad.getCedula();
-            }
-            if(tipoPersona==1){
-                Administrador administrador = administradorServicio.login(correo,contraseña);
-                return "administrador_index.xhtml?faces-redirect=true&amp;cedula="+administrador.getCedula();
-            }
-        } catch (Exception e) {
-            FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR,"Alerta", e.getMessage());
-            FacesContext.getCurrentInstance().addMessage(null, msg);
-        }
 
-
-        return null;
-    }
 
 }

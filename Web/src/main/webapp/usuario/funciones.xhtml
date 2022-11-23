@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/template.xhtml">
+    <ui:define name="title">Pelicula</ui:define>
+    <ui:define name="content">
+        <div class="card">
+        <h:form id="form">
+        <p:dataTable id="products" var="horario" value="#{funcionesBean.horarios}" rowKey="#{horario.codigo}"
+                     selection="#{funcionesBean.selectedHorario}" selectionMode="single">
+            <f:facet name="header">
+                RightClick to View Options
+            </f:facet>
+
+            <p:column headerText="Codigo">
+                <h:outputText value="#{horario.codigo}" />
+            </p:column>
+            <p:column headerText="Hora Inicio">
+                <h:outputText value="#{horario.horainicio}" />
+            </p:column>
+            <p:column headerText="Teatro">
+                <h:outputText value="#{horario.peliculaSala.sala.teatro.nombre}" />
+            </p:column>
+            <p:column headerText="Sala">
+                <h:outputText value="#{horario.peliculaSala.sala.codigo}" />
+            </p:column>
+            <p:column headerText="Precion">
+                <h:outputText value="#{horario.precio}" />
+            </p:column>
+            <p:column headerText="">
+                <p:commandButton value="Ver detalle" action="#{funcionesBean.detallePelicula(horario.codigo)}"
+                                 styleClass="ui-button-raised" icon="pi pi-arrow-right" iconPos="right" />
+            </p:column>
+        </p:dataTable>
+        </h:form>
+        </div>
+    </ui:define>
+</ui:composition>
+</html>

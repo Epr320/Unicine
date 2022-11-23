@@ -44,10 +44,10 @@ public class ClienteindexBean {
     }
 
     public String buscar(){
-        return "listapeliculas.xhtml?faces-redirect=true&amp;teatro="+teatro+"&amp;busqueda="+busqueda;
+        return "/usuario/listapeliculas.xhtml?faces-redirect=true&amp;teatro="+teatro+"&amp;busqueda="+busqueda;
 
     }
     public String detallePelicula(Integer pelicula){
-        return "detallePelicula.xhtml?faces-redirect=true&amp;pelicula="+pelicula;
+        return "/usuario/detallePelicula.xhtml?faces-redirect=true&amp;pelicula="+pelicula;
     }
 }

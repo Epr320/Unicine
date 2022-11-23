@@ -101,19 +101,19 @@ public class SeguridadBean implements Serializable {
                     Cliente cliente = clienteServicio.login(correo, contraseña);
                     autenticado = true;
                     usuarioSeccion=cliente;
-                    return "cliente_index.xhtml?faces-redirect=true&amp;";
+                    return "/usuario/cliente_index.xhtml?faces-redirect=true&amp;";
                 }
                 if (tipoPersona == 2) {
                     AdministradorCiudad administradorCiudad = administradorCiudadServicio.login(correo, contraseña);
                     autenticadoAC = true;
                     usuarioSeccion=administradorCiudad;
-                    return "empleado_index.xhtml?faces-redirect=true&amp;cedula=" + administradorCiudad.getCedula();
+                    return "/administradorC/empleado_index.xhtml?faces-redirect=true&amp;cedula=" + administradorCiudad.getCedula();
                 }
                 if (tipoPersona == 1) {
                     Administrador administrador = administradorServicio.login(correo, contraseña);
                     autenticadoA = true;
                     usuarioSeccion=administrador;
-                    return "administrador_index.xhtml?faces-redirect=true&amp;cedula=" + administrador.getCedula();
+                    return "/administrador/administrador_index.xhtml?faces-redirect=true&amp;cedula=" + administrador.getCedula();
                 }
             } catch (Exception e) {
                 FacesMessage msg = new FacesMessage(FacesMessage.SEVERITY_ERROR, "Alerta", e.getMessage());

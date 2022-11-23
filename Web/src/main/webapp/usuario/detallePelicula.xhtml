@@ -9,37 +9,43 @@
 <ui:composition template="/template.xhtml">
     <ui:define name="title">Pelicula</ui:define>
     <ui:define name="content">
-        <div id="body" style="display: flex; align-items: center; justify-content: center;height: 100%;">
+        <div id="body" class="ui-grid-row" style="display: flex; align-items: center; justify-content: center;height: 100%;">
             <h:form>
                 <h4>Trailer</h4>
                 <iframe width="853" height="280" src="#{detallePeliculaBean.pelicula.trailer}" title="#{detallePeliculaBean.pelicula.nombre}" ></iframe>
             </h:form>
 
         </div>
-        <div class="row d-flex" >
+        <div class="row ui-grid-row" >
         <div class="col-lg-8 col-md-1 align-self-center" >
             <p:outputPanel>
                 <h:panelGrid columns="1" cellpadding="5">
                     <div class="mb-3 imagen-pelicula" >
                         <img src="#{detallePeliculaBean.pelicula.ruta}" class="mb-auto imagen-peliculaDetalle" alt=""/>
                     </div>
-
-                    <h:outputText value="#{detallePeliculaBean.pelicula.nombre}" style="font-weight:
-                                bolder " styleClass="left"/>
-                    <h:outputText value="#{detallePeliculaBean.pelicula.estado}" style="font-weight:
-                                bold"  styleClass="left"/>
-                    <h:outputText value="#{detallePeliculaBean.pelicula.genero}" style="font-weight:
-                                bold" styleClass="left"/>
-                    <h:outputText value="#{detallePeliculaBean.pelicula.descripcion}" style="font-weight:
-                                bold"/>
+                    <p:outputLabel for="nombre" style="font-weight:
+                                bolder ">Nombre:</p:outputLabel>
+                    <h:outputText id="nombre" value="#{detallePeliculaBean.pelicula.nombre}"  styleClass="left"/>
+                    <p:outputLabel for="estado" style="font-weight:
+                                bolder ">Estado:</p:outputLabel>
+                    <h:outputText id="estado" value="#{detallePeliculaBean.pelicula.estado}"   styleClass="left"/>
+                    <p:outputLabel for="genero" style="font-weight:
+                                bolder ">Genero:</p:outputLabel>
+                    <h:outputText id="genero" value="#{detallePeliculaBean.pelicula.genero}"  styleClass="left"/>
+                    <p:outputLabel for="pelicula" style="font-weight:
+                                bolder ">Descripcion:</p:outputLabel>
+                    <h:outputText id="pelicula" value="#{detallePeliculaBean.pelicula.descripcion}" />
                 </h:panelGrid>
             </p:outputPanel>
         </div>
         </div>
-        <div class="field col-12 md:col-4">
+        <div class="center">
+            <h:form>
             <p:outputLabel for="navigator" value="Navigator"/>
             <p:datePicker id="navigator" value="#{detallePeliculaBean.fechaFuncion}" monthNavigator="true" yearNavigator="true" showWeek="true"/>
-
+            <p:commandButton value="Ver detalle" action="#{detallePeliculaBean.verFunciones}"
+                             styleClass="ui-button-raised" icon="pi pi-arrow-right" iconPos="right"/>
+            </h:form>
         </div>
     </ui:define>
 </ui:composition>

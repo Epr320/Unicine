@@ -22,19 +22,13 @@ public class Reserva implements Serializable {
     @Column(nullable = false)
     private Integer codigo;
 
-    @Column(nullable = false)
-    @Length(min=3, max=10,message ="El nombre debe tener entre 3 y 15 caracteres.")
-    @NotBlank
+    @Column(nullable = true)
     private double precio;
 
-    @Column(nullable = false)
-    @Length(min=3, max=100,message ="El nombre debe tener entre 3 y 15 caracteres.")
-    @NotBlank
+    @Column(nullable = true)
     private Date fecha;
 
-    @Column(nullable = false)
-    @Length(min=1, max=100,message ="El nombre debe tener entre 3 y 15 caracteres.")
-    @NotBlank
+    @Column(nullable = true)
     private Boolean diaEspecial;
 
     @OneToMany(mappedBy = "reserva")

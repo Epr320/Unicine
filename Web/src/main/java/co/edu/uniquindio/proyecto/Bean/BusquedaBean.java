@@ -44,7 +44,7 @@ public class BusquedaBean {
     }
 
     public String detallePelicula(Integer pelicula){
-         return "detallePelicula.xhtml?faces-redirect=true&amp;teatro="+teatro+"&amp;pelicula="+pelicula;
+         return "/usuario/detallePelicula.xhtml?faces-redirect=true&amp;teatro="+teatro+"&amp;pelicula="+pelicula;
     }
 
 

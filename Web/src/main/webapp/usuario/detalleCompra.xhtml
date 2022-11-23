@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<ui:composition template="/template.xhtml">
+    <ui:define name="title">Pelicula</ui:define>
+    <ui:define name="content">
+        <div class="card">
+            <h:form id="form">
+                <div class="field">
+                    <p:outputLabel for="hinicio">Numero de sillas:</p:outputLabel>
+                    <p:inputText id="hinicio" value="#{detalleCompraBean.numSillas}" required="true" />
+                </div>
+            </h:form>
+            <p:panel header="Elige la confiteria" styleClass="mt-3">
+                <div class="row">
+                   <p:repeat value="#{detalleCompraBean.confiterias}" var="reserva_Confiteria" varStatus="c">
+                        <div class="col-3 mb-3">
+                            <div class="shadow-sm p-3">
+                                <h:form id="cofiteForm">
+                                    <img src="#{reserva_Confiteria.confiteria.ruta}" alt="Imagen"/>
+                                    <p>#{reserva_Confiteria.confiteria.nombre}</p>
+                                    <p>#{reserva_Confiteria.confiteria.precio}</p>
+                                    <div class="text-center">
+                                        <div class="d-inline-flex">
+                                            <p:commandButton icon="pi pi-minus"  action="#{detalleCompraBean.disminuirCantidad(reserva_Confiteria.confiteria.codigo)}" update="cofiteForm"/>
+                                            <p id="cantidad">#{reserva_Confiteria.cantidad}</p>
+                                            <p:commandButton icon="pi pi-plus"  action="#{detalleCompraBean.aumentarCantidad(reserva_Confiteria.confiteria.codigo)}" update="cofiteForm"/>
+                                        </div>
+                                    </div>
+
+                                </h:form>
+                            </div>
+                        </div>
+                   </p:repeat>
+                </div>
+            </p:panel>
+            <h:form>
+                    <p:panel id="detalleCompra" header="Detalle de la Compra" styleClass="mt-3">
+                                <div class="mt-3">
+                                    <strong>CompletarCompra</strong>
+                                        <div class="mt-3">
+                                            <p:commandButton value="Ver detalle" action="#{detalleCompraBean.completarReservas}"
+                                                             styleClass="ui-button-raised" icon="pi pi-arrow-right" iconPos="right"/>
+                                        </div>
+                                </div>
+                    </p:panel>
+            </h:form>
+        </div>
+
+    </ui:define>
+</ui:composition>
+</html>

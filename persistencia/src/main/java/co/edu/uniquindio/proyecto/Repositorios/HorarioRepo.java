@@ -26,4 +26,7 @@ public interface HorarioRepo extends JpaRepository<Horario, Integer> {
 
     @Query("select h from Horario h join AdministradorCiudad a on a.ciudad=h.peliculaSala.sala.teatro.ciudad where a.cedula=:cedula")
     List<Horario> listarHorariosPorAdmin(String cedula);
+
+    @Query("select h from Horario h where h.fecha=:fecha and h.peliculaSala.pelicula.codigo=:codigo and h.peliculaSala.sala.teatro.ciudad.codigo=:codigoCiudad")
+    List<Horario> buscarHorarioPorPeliculaYFecha(Date fecha,Integer codigo,Integer codigoCiudad);
 }

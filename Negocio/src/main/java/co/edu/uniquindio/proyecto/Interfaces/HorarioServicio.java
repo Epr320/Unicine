@@ -15,4 +15,7 @@ public interface HorarioServicio {
 
     List<Horario> listarHorariosPorAdmin(String cedula);
 
+    List<Horario> buscarHorarioPorPeliculaYFecha(String fecha, String peliculacodigo, Integer codigo);
+
+    Horario obtenerHorario(Integer codigo);
 }

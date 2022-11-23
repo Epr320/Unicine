@@ -6,6 +6,9 @@ import java.util.Date;
 
 public interface ReservaServicio {
 
-    Reserva crearReserva(Double precio, Date Fecha,Integer cliente,Integer Horario,String cupon)throws Exception;
+    Reserva crearReserva(Reserva reserva)throws Exception;
 
+    Reserva obtenerReservar(Integer codigo);
+
+    Reserva guardarReservarFinal(Reserva reserva1, String cupon);
 }

@@ -8,6 +8,11 @@ import co.edu.uniquindio.proyecto.entidades.PeliculaSala;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.time.format.DateTimeFormatter;
 import java.util.Date;
 import java.util.List;
 @Service
@@ -55,5 +60,18 @@ public class HorarioServicioImpl implements HorarioServicio {
     @Override
     public List<Horario> listarHorariosPorAdmin(String cedula) {
         return horarioRepo.listarHorariosPorAdmin(cedula);
+    }
+
+    @Override
+    public List<Horario> buscarHorarioPorPeliculaYFecha(String fecha, String peliculacodigo,Integer codigoCiudad) {
+
+        LocalDate localDate1 = LocalDate.parse(fecha, DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        Date fecha1 = Date.from(localDate1.atStartOfDay(ZoneId.systemDefault()).toInstant());
+        return horarioRepo.buscarHorarioPorPeliculaYFecha(fecha1,Integer.parseInt(peliculacodigo),codigoCiudad);
+    }
+
+    @Override
+    public Horario obtenerHorario(Integer codigo) {
+        return horarioRepo.findById(codigo).get();
     }
 }

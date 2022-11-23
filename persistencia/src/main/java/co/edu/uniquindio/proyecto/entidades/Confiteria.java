@@ -33,6 +33,7 @@ public class Confiteria implements Serializable {
     @Column(nullable = false)
     private double precio;
 
+
     @OneToMany(mappedBy = "confiteria")
     private List<Reserva_Confiteria> confiterias;
 

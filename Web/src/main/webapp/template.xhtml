@@ -22,7 +22,7 @@
                 <div class="container">
 
                     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-                        <a href="/cliente_index.xhtml"
+                        <a href="/usuario/cliente_index.xhtml"
                            class="d-flex align-items-center my-2 my-lg-0 me-lg-auto text-white text-decoration-none">
                             <span class="pi pi-play" style="font-size: 2.5rem; margin-right: 10px"></span>
                             <span class="fs-4">UniCine</span>
@@ -32,23 +32,18 @@
                         <ul class="nav col-12 col-lg-auto my-2 justify-content-center my-md-0 text-small"
                             style="text-align: center">
                             <li>
-                                <a href="/cliente_index.xhtml" class="nav-link text-white" style="font-size: 0.95rem">
+                                <a href="/usuario/cliente_index.xhtml" class="nav-link text-white" style="font-size: 0.95rem">
                                     <i class="pi pi-home bi d-block mx-auto mb-1" style="font-size: 1.3rem"></i>
                                     Home
                                 </a>
                             </li>
                             <li>
-                                <a href="/Resenias.xhtml" class="nav-link text-white" style="font-size: 0.95rem">
+                                <a href="/usuario/reservas.xhtml" class="nav-link text-white" style="font-size: 0.95rem">
                                     <i class="pi pi-book d-block mx-auto mb-1" style="font-size: 1.3rem"></i>
                                     Reservas
                                 </a>
                             </li>
-                            <li >
-                                <a href="/manual.xhtml" class="nav-link text-white" style="font-size: 0.95rem">
-                                    <i class="pi pi-user d-block mx-auto mb-1" style="font-size: 1.3rem"></i>
-                                    Perfil
-                                </a>
-                            </li>
+
                         </ul>
                     </div>
                 </div>
@@ -61,6 +56,12 @@
 
                 <p:commandButton update="@form" icon="pi pi-search"
                                  action="#{clienteindexBean.buscar()}" />
+
+
+            </h:form>
+            <h:form>
+                <p:commandButton update="@form" icon="pi pi-sign-out"
+                                 action="#{seguridadBean.cerrarSesion()}" />
             </h:form>
         </ui:insert>
     </div>
