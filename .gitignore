@@ -1,3 +1,6 @@
 /.idea/
+/persistencia/build/
 /negocio/build/
+/Web/build/
 *.class
+/.gradle/

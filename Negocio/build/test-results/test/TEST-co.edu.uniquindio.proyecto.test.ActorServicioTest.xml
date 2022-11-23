@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="co.edu.uniquindio.proyecto.test.ActorServicioTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2022-11-04T14:45:34" hostname="DESKTOP-6P47GG6" time="0.452">
+  <properties/>
+  <testcase name="agregarActor()" classname="co.edu.uniquindio.proyecto.test.ActorServicioTest" time="0.452"/>
+  <system-out><![CDATA[09:45:22.284 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating CacheAwareContextLoaderDelegate from class [org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate]
+09:45:22.316 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating BootstrapContext using constructor [public org.springframework.test.context.support.DefaultBootstrapContext(java.lang.Class,org.springframework.test.context.CacheAwareContextLoaderDelegate)]
+09:45:22.450 [Test worker] DEBUG org.springframework.test.context.BootstrapUtils - Instantiating TestContextBootstrapper for test class [co.edu.uniquindio.proyecto.test.ActorServicioTest] from class [org.springframework.boot.test.context.SpringBootTestContextBootstrapper]
+09:45:22.480 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Neither @ContextConfiguration nor @ContextHierarchy found for test class [co.edu.uniquindio.proyecto.test.ActorServicioTest], using SpringBootContextLoader
+09:45:22.490 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.edu.uniquindio.proyecto.test.ActorServicioTest]: class path resource [co/edu/uniquindio/proyecto/test/ActorServicioTest-context.xml] does not exist
+09:45:22.492 [Test worker] DEBUG org.springframework.test.context.support.AbstractContextLoader - Did not detect default resource location for test class [co.edu.uniquindio.proyecto.test.ActorServicioTest]: class path resource [co/edu/uniquindio/proyecto/test/ActorServicioTestContext.groovy] does not exist
+09:45:22.492 [Test worker] INFO org.springframework.test.context.support.AbstractContextLoader - Could not detect default resource locations for test class [co.edu.uniquindio.proyecto.test.ActorServicioTest]: no resource found for suffixes {-context.xml, Context.groovy}.
+09:45:22.568 [Test worker] DEBUG org.springframework.test.context.support.ActiveProfilesUtils - Could not find an 'annotation declaring class' for annotation type [org.springframework.test.context.ActiveProfiles] and class [co.edu.uniquindio.proyecto.test.ActorServicioTest]
+09:45:22.747 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - @TestExecutionListeners is not present for class [co.edu.uniquindio.proyecto.test.ActorServicioTest]: using defaults.
+09:45:22.747 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Loaded default TestExecutionListener class names from location [META-INF/spring.factories]: [org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener, org.springframework.test.context.web.ServletTestExecutionListener, org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener, org.springframework.test.context.event.ApplicationEventsTestExecutionListener, org.springframework.test.context.support.DependencyInjectionTestExecutionListener, org.springframework.test.context.support.DirtiesContextTestExecutionListener, org.springframework.test.context.transaction.TransactionalTestExecutionListener, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener, org.springframework.test.context.event.EventPublishingTestExecutionListener]
+09:45:22.758 [Test worker] DEBUG org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Skipping candidate TestExecutionListener [org.springframework.test.context.web.ServletTestExecutionListener] due to a missing dependency. Specify custom listener classes or make the default listener classes and their required dependencies available. Offending class: [javax/servlet/ServletContext]
+09:45:22.767 [Test worker] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper - Using TestExecutionListeners: [org.springframework.test.context.support.DirtiesContextBeforeModesTestExecutionListener@16afbd92, org.springframework.test.context.event.ApplicationEventsTestExecutionListener@2c5d601e, org.springframework.boot.test.mock.mockito.MockitoTestExecutionListener@7fe083b1, org.springframework.boot.test.autoconfigure.SpringBootDependencyInjectionTestExecutionListener@23c388c2, org.springframework.test.context.support.DirtiesContextTestExecutionListener@486be205, org.springframework.test.context.transaction.TransactionalTestExecutionListener@f713686, org.springframework.test.context.jdbc.SqlScriptsTestExecutionListener@74f7d1d2, org.springframework.test.context.event.EventPublishingTestExecutionListener@4b4dd216, org.springframework.boot.test.autoconfigure.restdocs.RestDocsTestExecutionListener@5ca17ab0, org.springframework.boot.test.autoconfigure.web.client.MockRestServiceServerResetTestExecutionListener@5a62b2a4, org.springframework.boot.test.autoconfigure.web.servlet.MockMvcPrintOnlyOnFailureTestExecutionListener@1051817b, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverTestExecutionListener@35293c05, org.springframework.boot.test.autoconfigure.webservices.client.MockWebServiceServerTestExecutionListener@620aa4ea, org.springframework.boot.test.mock.mockito.ResetMocksTestExecutionListener@2db2dd9d]
+09:45:22.772 [Test worker] DEBUG org.springframework.test.context.support.AbstractDirtiesContextTestExecutionListener - Before test class: context [DefaultTestContext@67af833b testClass = ActorServicioTest, testInstance = [null], testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@d1f74b8 testClass = ActorServicioTest, locations = '{}', classes = '{class co.edu.uniquindio.proyecto.NegocioApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1cbf6e72, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@56a4479a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4504d271, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2b5825fa, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42f48531, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1ec9bd38], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map[[empty]]], class annotated with @DirtiesContext [false] with mode [null].
+09:45:22.786 [Test worker] DEBUG org.springframework.test.context.support.DependencyInjectionTestExecutionListener - Performing dependency injection for test context [[DefaultTestContext@67af833b testClass = ActorServicioTest, testInstance = co.edu.uniquindio.proyecto.test.ActorServicioTest@69adf72c, testMethod = [null], testException = [null], mergedContextConfiguration = [MergedContextConfiguration@d1f74b8 testClass = ActorServicioTest, locations = '{}', classes = '{class co.edu.uniquindio.proyecto.NegocioApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1cbf6e72, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@56a4479a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4504d271, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2b5825fa, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42f48531, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1ec9bd38], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]].
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+ :: Spring Boot ::                (v2.7.3)
+
+2022-11-04 09:45:23.376  INFO 9816 --- [    Test worker] c.e.u.proyecto.test.ActorServicioTest    : Starting ActorServicioTest using Java 11.0.16.1 on DESKTOP-6P47GG6 with PID 9816 (started by Portátil in C:\Users\Portátil\Desktop\8 Semestre\Programacion avanzada\UniCine\Negocio)
+2022-11-04 09:45:23.378  INFO 9816 --- [    Test worker] c.e.u.proyecto.test.ActorServicioTest    : No active profile set, falling back to 1 default profile: "default"
+2022-11-04 09:45:24.606  INFO 9816 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2022-11-04 09:45:24.872  INFO 9816 --- [    Test worker] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 253 ms. Found 17 JPA repository interfaces.
+2022-11-04 09:45:25.906  INFO 9816 --- [    Test worker] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2022-11-04 09:45:26.032  INFO 9816 --- [    Test worker] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 5.6.10.Final
+2022-11-04 09:45:26.312  INFO 9816 --- [    Test worker] o.hibernate.annotations.common.Version   : HCANN000001: Hibernate Commons Annotations {5.1.2.Final}
+2022-11-04 09:45:26.564  INFO 9816 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2022-11-04 09:45:27.247  INFO 9816 --- [    Test worker] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2022-11-04 09:45:27.331  INFO 9816 --- [    Test worker] org.hibernate.dialect.Dialect            : HHH000400: Using dialect: org.hibernate.dialect.MySQL8Dialect
+2022-11-04 09:45:27.788  WARN 9816 --- [    Test worker] org.hibernate.cfg.AnnotationBinder       : HHH000503: A class should not be annotated with both @Inheritance and @MappedSuperclass. @Inheritance will be ignored for: co.edu.uniquindio.proyecto.entidades.Persona.
+Hibernate: alter table administrador_ciudad drop foreign key FKadedufbo49flmms4046yxtgoa
+Hibernate: alter table cliente_telefono drop foreign key FK9je1rm9kmeci8r9uruyrgoiva
+Hibernate: alter table entrada drop foreign key FKju3pbn4ml1rg672w0ui0fb2pl
+Hibernate: alter table entrada drop foreign key FKdrlkv65ss8f88c8enrlni5etx
+Hibernate: alter table horario drop foreign key FKlsjo6ijq06nqru8c1m58dvm6k
+Hibernate: alter table pelicula_actores drop foreign key FKh2bn01sxgaub09dlxka8xw455
+Hibernate: alter table pelicula_actores drop foreign key FK6yijygbbh9xy0lq4t813kh77b
+Hibernate: alter table pelicula_ruta drop foreign key FK6xnhexfih1bgnryrt52vbov8i
+Hibernate: alter table pelicula_sala drop foreign key FKe5d49dyksf318wgvkkxg9wwvh
+Hibernate: alter table pelicula_sala drop foreign key FKag8sa6mhl2s2wrkfqvlgyrgp7
+Hibernate: alter table reserva drop foreign key FK7n1wjkw1vcrssjabaquo3954u
+Hibernate: alter table reserva drop foreign key FK2a5ya94b4k490q7yjp49jdq4d
+Hibernate: alter table reserva drop foreign key FK7utedkykv1skwcsaep9twx4ph
+Hibernate: alter table reserva_confiteria drop foreign key FKb4pyxwymp75y95y8a1symqqp
+Hibernate: alter table reserva_confiteria drop foreign key FKi68m5k9uh5hmpvno6to9xy9rn
+Hibernate: alter table reserva_estacionamientos drop foreign key FKcxq8nb9qqrqrvh2w8hypfxejp
+Hibernate: alter table reserva_estacionamientos drop foreign key FKc5o8ip8usjvq08ptyhwhwxfrl
+Hibernate: alter table sala drop foreign key FKjyb9osxwvl83jsd7am520lat2
+Hibernate: alter table teatro drop foreign key FKn2jjmqnxwa0u5me4adfrtgm25
+Hibernate: drop table if exists actor
+Hibernate: drop table if exists administrador
+Hibernate: drop table if exists administrador_ciudad
+Hibernate: drop table if exists ciudad
+Hibernate: drop table if exists cliente
+Hibernate: drop table if exists cliente_telefono
+Hibernate: drop table if exists confiteria
+Hibernate: drop table if exists cupon
+Hibernate: drop table if exists entrada
+Hibernate: drop table if exists estacionamiento
+Hibernate: drop table if exists horario
+Hibernate: drop table if exists pelicula
+Hibernate: drop table if exists pelicula_actores
+Hibernate: drop table if exists pelicula_ruta
+Hibernate: drop table if exists pelicula_sala
+Hibernate: drop table if exists reserva
+Hibernate: drop table if exists reserva_confiteria
+Hibernate: drop table if exists reserva_estacionamientos
+Hibernate: drop table if exists sala
+Hibernate: drop table if exists teatro
+Hibernate: create table actor (codigo integer not null auto_increment, nombre varchar(20) not null, primary key (codigo)) engine=InnoDB
+Hibernate: create table administrador (cedula varchar(10) not null, email varchar(150) not null, nombre varchar(15) not null, password varchar(15) not null, codigo integer not null, primary key (cedula)) engine=InnoDB
+Hibernate: create table administrador_ciudad (cedula varchar(10) not null, email varchar(150) not null, nombre varchar(15) not null, password varchar(15) not null, codigo integer not null, ciudad_codigo integer, primary key (cedula)) engine=InnoDB
+Hibernate: create table ciudad (codigo integer not null auto_increment, nombre varchar(100) not null, primary key (codigo)) engine=InnoDB
+Hibernate: create table cliente (cedula varchar(10) not null, email varchar(150) not null, nombre varchar(15) not null, password varchar(15) not null, ruta varchar(255) not null, primary key (cedula)) engine=InnoDB
+Hibernate: create table cliente_telefono (cliente_cedula varchar(255) not null, telefono varchar(255)) engine=InnoDB
+Hibernate: create table confiteria (codigo integer not null auto_increment, nombre varchar(100) not null, precio double precision not null, ruta varchar(255) not null, primary key (codigo)) engine=InnoDB
+Hibernate: create table cupon (codigo integer not null auto_increment, criterio varchar(100) not null, descripcion varchar(100) not null, nombre varchar(100) not null, porcentaje integer not null, primary key (codigo)) engine=InnoDB
+Hibernate: create table entrada (codigo integer not null auto_increment, columna integer not null, fila integer not null, horario_codigo integer, reserva_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: create table estacionamiento (codigo integer not null, precio double precision not null, primary key (codigo)) engine=InnoDB
+Hibernate: create table horario (codigo integer not null, fecha_fin datetime(6) not null, horainicio varchar(15) not null, precio double precision not null, pelicula_sala_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: create table pelicula (codigo integer not null auto_increment, descripcion varchar(150) not null, genero varchar(15) not null, nombre varchar(15) not null, sinopsis varchar(150) not null, trailer varchar(15) not null, primary key (codigo)) engine=InnoDB
+Hibernate: create table pelicula_actores (peliculas_codigo integer not null, actores_codigo integer not null) engine=InnoDB
+Hibernate: create table pelicula_ruta (pelicula_codigo integer not null, ruta varchar(255) not null) engine=InnoDB
+Hibernate: create table pelicula_sala (codigo integer not null auto_increment, pelicula_codigo integer, sala_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: create table reserva (codigo integer not null auto_increment, dia_especial bit not null, fecha datetime(6) not null, precio double precision not null, cliente_cedula varchar(255), cupon_codigo integer, horario_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: create table reserva_confiteria (codigo integer not null auto_increment, cantidad integer not null, confiteria_codigo integer, reserva_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: create table reserva_estacionamientos (reservas_codigo integer not null, estacionamientos_codigo integer not null) engine=InnoDB
+Hibernate: create table sala (codigo integer not null auto_increment, num_asientos integer not null, num_columnas integer not null, num_filas integer not null, teatro_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: create table teatro (codigo integer not null auto_increment, direccion varchar(100) not null, nombre varchar(100) not null, ciudad_codigo integer, primary key (codigo)) engine=InnoDB
+Hibernate: alter table administrador add constraint UK_h121ki47maojpkmvdvqf87ybo unique (email)
+Hibernate: alter table administrador add constraint UK_q1iy4s4qj5hrjgb2pajlrpgmy unique (codigo)
+Hibernate: alter table administrador_ciudad add constraint UK_eaxs3rn51qedco42bhp4ofx96 unique (email)
+Hibernate: alter table administrador_ciudad add constraint UK_6eo2dnog4o3uwqw8tqfnlyw42 unique (codigo)
+Hibernate: alter table cliente add constraint UK_cmxo70m08n43599l3h0h07cc6 unique (email)
+Hibernate: alter table pelicula add constraint UK_sn855fe77bpyruthx7cnqad7f unique (descripcion)
+Hibernate: alter table administrador_ciudad add constraint FKadedufbo49flmms4046yxtgoa foreign key (ciudad_codigo) references ciudad (codigo)
+Hibernate: alter table cliente_telefono add constraint FK9je1rm9kmeci8r9uruyrgoiva foreign key (cliente_cedula) references cliente (cedula)
+Hibernate: alter table entrada add constraint FKju3pbn4ml1rg672w0ui0fb2pl foreign key (horario_codigo) references horario (codigo)
+Hibernate: alter table entrada add constraint FKdrlkv65ss8f88c8enrlni5etx foreign key (reserva_codigo) references reserva (codigo)
+Hibernate: alter table horario add constraint FKlsjo6ijq06nqru8c1m58dvm6k foreign key (pelicula_sala_codigo) references pelicula_sala (codigo)
+Hibernate: alter table pelicula_actores add constraint FKh2bn01sxgaub09dlxka8xw455 foreign key (actores_codigo) references actor (codigo)
+Hibernate: alter table pelicula_actores add constraint FK6yijygbbh9xy0lq4t813kh77b foreign key (peliculas_codigo) references pelicula (codigo)
+Hibernate: alter table pelicula_ruta add constraint FK6xnhexfih1bgnryrt52vbov8i foreign key (pelicula_codigo) references pelicula (codigo)
+Hibernate: alter table pelicula_sala add constraint FKe5d49dyksf318wgvkkxg9wwvh foreign key (pelicula_codigo) references pelicula (codigo)
+Hibernate: alter table pelicula_sala add constraint FKag8sa6mhl2s2wrkfqvlgyrgp7 foreign key (sala_codigo) references sala (codigo)
+Hibernate: alter table reserva add constraint FK7n1wjkw1vcrssjabaquo3954u foreign key (cliente_cedula) references cliente (cedula)
+Hibernate: alter table reserva add constraint FK2a5ya94b4k490q7yjp49jdq4d foreign key (cupon_codigo) references cupon (codigo)
+Hibernate: alter table reserva add constraint FK7utedkykv1skwcsaep9twx4ph foreign key (horario_codigo) references horario (codigo)
+Hibernate: alter table reserva_confiteria add constraint FKb4pyxwymp75y95y8a1symqqp foreign key (confiteria_codigo) references confiteria (codigo)
+Hibernate: alter table reserva_confiteria add constraint FKi68m5k9uh5hmpvno6to9xy9rn foreign key (reserva_codigo) references reserva (codigo)
+Hibernate: alter table reserva_estacionamientos add constraint FKcxq8nb9qqrqrvh2w8hypfxejp foreign key (estacionamientos_codigo) references estacionamiento (codigo)
+Hibernate: alter table reserva_estacionamientos add constraint FKc5o8ip8usjvq08ptyhwhwxfrl foreign key (reservas_codigo) references reserva (codigo)
+Hibernate: alter table sala add constraint FKjyb9osxwvl83jsd7am520lat2 foreign key (teatro_codigo) references teatro (codigo)
+Hibernate: alter table teatro add constraint FKn2jjmqnxwa0u5me4adfrtgm25 foreign key (ciudad_codigo) references ciudad (codigo)
+2022-11-04 09:45:32.079  INFO 9816 --- [    Test worker] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2022-11-04 09:45:32.091  INFO 9816 --- [    Test worker] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2022-11-04 09:45:34.238  INFO 9816 --- [    Test worker] c.e.u.proyecto.test.ActorServicioTest    : Started ActorServicioTest in 11.411 seconds (JVM running for 14.577)
+2022-11-04 09:45:34.289  INFO 9816 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Began transaction (1) for test context [DefaultTestContext@67af833b testClass = ActorServicioTest, testInstance = co.edu.uniquindio.proyecto.test.ActorServicioTest@69adf72c, testMethod = agregarActor@ActorServicioTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@d1f74b8 testClass = ActorServicioTest, locations = '{}', classes = '{class co.edu.uniquindio.proyecto.NegocioApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1cbf6e72, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@56a4479a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4504d271, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2b5825fa, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42f48531, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1ec9bd38], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]; transaction manager [org.springframework.orm.jpa.JpaTransactionManager@43c20142]; rollback [true]
+Hibernate: insert into actor (nombre) values (?)
+2022-11-04 09:45:34.700  INFO 9816 --- [    Test worker] o.s.t.c.transaction.TransactionContext   : Rolled back transaction for test: [DefaultTestContext@67af833b testClass = ActorServicioTest, testInstance = co.edu.uniquindio.proyecto.test.ActorServicioTest@69adf72c, testMethod = agregarActor@ActorServicioTest, testException = [null], mergedContextConfiguration = [MergedContextConfiguration@d1f74b8 testClass = ActorServicioTest, locations = '{}', classes = '{class co.edu.uniquindio.proyecto.NegocioApplication}', contextInitializerClasses = '[]', activeProfiles = '{}', propertySourceLocations = '{}', propertySourceProperties = '{org.springframework.boot.test.context.SpringBootTestContextBootstrapper=true}', contextCustomizers = set[org.springframework.boot.test.autoconfigure.actuate.metrics.MetricsExportContextCustomizerFactory$DisableMetricExportContextCustomizer@1cbf6e72, org.springframework.boot.test.autoconfigure.properties.PropertyMappingContextCustomizer@0, org.springframework.boot.test.autoconfigure.web.servlet.WebDriverContextCustomizerFactory$Customizer@56a4479a, org.springframework.boot.test.context.filter.ExcludeFilterContextCustomizer@4504d271, org.springframework.boot.test.json.DuplicateJsonObjectContextCustomizerFactory$DuplicateJsonObjectContextCustomizer@2b5825fa, org.springframework.boot.test.mock.mockito.MockitoContextCustomizer@0, org.springframework.boot.test.web.client.TestRestTemplateContextCustomizer@42f48531, org.springframework.boot.test.context.SpringBootTestArgs@1, org.springframework.boot.test.context.SpringBootTestWebEnvironment@1ec9bd38], contextLoader = 'org.springframework.boot.test.context.SpringBootContextLoader', parent = [null]], attributes = map['org.springframework.test.context.event.ApplicationEventsTestExecutionListener.recordApplicationEvents' -> false]]
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
