@@ -6,9 +6,11 @@ import co.edu.uniquindio.proyecto.Interfaces.CiudadServicio;
 import co.edu.uniquindio.proyecto.entidades.Ciudad;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.stereotype.Component;
 
 import java.util.List;
 
+@Component
 public class DatosIniciales implements CommandLineRunner {
 
     @Autowired
