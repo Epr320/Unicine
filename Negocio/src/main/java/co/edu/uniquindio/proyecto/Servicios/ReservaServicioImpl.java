@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -44,10 +45,18 @@ public class ReservaServicioImpl implements ReservaServicio {
 
         Optional<Cupon> cupon1 = cuponRepo.buscarPorNombre(cupon);
 
+
         if(cupon1.isPresent()){
-            reserva1.setPrecio(reserva1.getPrecio()*(cupon1.get().getPorcentaje()/100));
+            double descuento=cupon1.get().getPorcentaje();
+            descuento=descuento/100;
+            reserva1.setPrecio(reserva1.getPrecio()-(reserva1.getPrecio()*descuento));
         }
 
         return reservaRepo.save(reserva1);
+    }
+
+    @Override
+    public List<Reserva> obtenerReservasPorCliente(String cedula) {
+        return reservaRepo.obtenerReservasPorCliente(cedula);
     }
 }
