@@ -10,27 +10,7 @@ import javax.mail.internet.MimeMessage;
 @Service
 public class EmailService {
 
-    @Autowired
-    private JavaMailSender sender;
-
     public boolean enviarEmail(String asunto, String contenido, String destinatario) {
-        MimeMessage mensaje = sender.createMimeMessage();
-        MimeMessageHelper helper = new MimeMessageHelper(mensaje);
-
-        try{
-            helper.setText(contenido, true);
-            helper.setTo(destinatario);
-            helper.setFrom("emersonpulgarin10@gmail.com");
-            helper.setSubject(asunto);
-
-            sender.send(mensaje);
-
-            return true;
-
-        } catch(Exception e) {
-            e.printStackTrace();
-        }
-
         return false;
     }
 
