@@ -1,1 +1,1 @@
-Web: java -jar ${PATH_TO_JAR}
+Web: java -jar Web/build/libs/Web-1.0-SNAPSHOT.jar
